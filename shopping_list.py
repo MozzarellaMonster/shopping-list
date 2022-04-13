@@ -34,5 +34,5 @@ class ShoppingList:
 			print(category)
 			for item in self.list:
 				if item.get_type() == category:
-					print("\t" + item.get_name())
+					print("\t" + item.get_name() + "\t" + str(item.get_price()))
 			print()

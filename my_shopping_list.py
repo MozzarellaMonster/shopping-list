@@ -1,6 +1,8 @@
 from shopping_list import ShoppingList
 from grocery import Grocery
 
+# File for testing purposes
+
 my_list = ShoppingList()
 bread = Grocery("Bread", "Dry Goods", 1.38)
 milk = Grocery("Milk", "Dairy", 3.69)
@@ -17,8 +19,5 @@ my_list.add(ice_cream)
 my_list.add(canned_peas)
 
 
-my_list.list_categories()
-my_list.print_categories()
-my_list.delete(pizza)
 my_list.list_categories()
 my_list.print_categories()
