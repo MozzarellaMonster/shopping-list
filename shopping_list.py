@@ -2,7 +2,6 @@ from grocery import Grocery
 
 class ShoppingList:
 	def __init__(self, list = None):
-		self.categories = []
 		if list == None:
 			self.list = []
 		else:
@@ -33,11 +32,12 @@ class ShoppingList:
 		return empty_space
 	
 	def print_categories(self):
+		categories = []
 		for item in self.list:
-			if item.get_type() not in self.categories:
-				self.categories.append(item.get_type())
+			if item.get_type() not in categories:
+				categories.append(item.get_type())
 
-		for category in self.categories:
+		for category in categories:
 			print(category)
 			for item in self.list:
 				if item.get_type() == category:
