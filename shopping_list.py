@@ -36,8 +36,6 @@ class ShoppingList:
 			for i in range(40 - taken_space):
 				empty_space += " "
 		return empty_space
-
-
 	
 	def print_categories(self):
 		for category in self.categories:
