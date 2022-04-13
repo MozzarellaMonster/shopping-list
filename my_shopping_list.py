@@ -18,6 +18,4 @@ my_list.add(pizza)
 my_list.add(ice_cream)
 my_list.add(canned_peas)
 
-
-my_list.list_categories()
 my_list.print_categories()

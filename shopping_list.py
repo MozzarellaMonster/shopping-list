@@ -24,11 +24,6 @@ class ShoppingList:
 		if item in self.list:
 			self.list.remove(item)
 			
-	def list_categories(self):
-		for item in self.list:
-			if item.get_type() not in self.categories:
-				self.categories.append(item.get_type())
-			
 	def calc_line_length(self, name, price):
 		taken_space = len(name) + len(str(price))
 		empty_space = ""
@@ -38,6 +33,10 @@ class ShoppingList:
 		return empty_space
 	
 	def print_categories(self):
+		for item in self.list:
+			if item.get_type() not in self.categories:
+				self.categories.append(item.get_type())
+
 		for category in self.categories:
 			print(category)
 			for item in self.list:
