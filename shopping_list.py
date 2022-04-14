@@ -36,7 +36,8 @@ class ShoppingList:
 	def print_categories(self):
 		categories = []
 		total = 0.0
-		
+		full_string = ""
+
 		for item in self.list:
 			if item.get_type() not in categories:
 				categories.append(item.get_type())
@@ -44,13 +45,18 @@ class ShoppingList:
 		for item in self.list:
 			total += item.get_price()
 
-		print("\nShopping List:")
-		print(40 * "=" + "\n")
+		full_string += "\nShopping List:\n"
+		full_string += (40 * "=" + "\n")
 		for category in categories:
-			print(category + ":")
+			full_string += category + ":\n"
 			for item in self.list:
 				if item.get_type() == category:
-					print(" " + item.get_name() + self.calc_line_length(item.get_name(), item.get_price(), 39) + "{:.2f}".format(item.get_price()))
-			print()
-		print(40 * "=")
-		print("Total:" + self.calc_line_length("Total:", total) + "{:.2f}".format(total))
+					full_string += (" " + item.get_name() + self.calc_line_length(item.get_name(), item.get_price(), 39) + "{:.2f}".format(item.get_price()) + "\n")
+			full_string += "\n"
+		full_string += (40 * "=" + "\n")
+		full_string += ("Total:" + self.calc_line_length("Total:", total) + "{:.2f}".format(total) + "\n")
+		return full_string
+	
+	def make_shopping_list_txt(self, full_text):
+		with open("shopping_list.txt", 'w') as file:
+			file.write(full_text)
