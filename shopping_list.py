@@ -25,7 +25,7 @@ class ShoppingList:
 		else:
 			print("Item not found")
 			
-	def calc_line_length(self, name, price, length = 40):
+	def fill_line(self, name, price, length = 40):
 		taken_space = len(name) + len("{:.2f}".format(price))
 		empty_space = ""
 		if(taken_space < length):
@@ -51,10 +51,10 @@ class ShoppingList:
 			full_string += category + ":\n"
 			for item in self.list:
 				if item.get_type() == category:
-					full_string += (" " + item.get_name() + self.calc_line_length(item.get_name(), item.get_price(), 39) + "{:.2f}".format(item.get_price()) + "\n")
+					full_string += (" " + item.get_name() + self.fill_line(item.get_name(), item.get_price(), 39) + "{:.2f}".format(item.get_price()) + "\n")
 			full_string += "\n"
 		full_string += (40 * "=" + "\n")
-		full_string += ("Total:" + self.calc_line_length("Total:", total) + "{:.2f}".format(total) + "\n")
+		full_string += ("Total:" + self.fill_line("Total:", total) + "{:.2f}".format(total) + "\n")
 		return full_string
 	
 	def make_shopping_list_txt(self):
