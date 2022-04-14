@@ -19,4 +19,4 @@ my_list.add(ice_cream)
 my_list.add(canned_peas)
 
 print(my_list.print_categories())
-my_list.make_shopping_list_txt(my_list.print_categories())
+my_list.make_shopping_list_txt()

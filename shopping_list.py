@@ -57,6 +57,6 @@ class ShoppingList:
 		full_string += ("Total:" + self.calc_line_length("Total:", total) + "{:.2f}".format(total) + "\n")
 		return full_string
 	
-	def make_shopping_list_txt(self, full_text):
+	def make_shopping_list_txt(self):
 		with open("shopping_list.txt", 'w') as file:
-			file.write(full_text)
+			file.write(self.print_categories())
