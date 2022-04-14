@@ -22,24 +22,35 @@ class ShoppingList:
 	def delete(self, item):
 		if item in self.list:
 			self.list.remove(item)
+		else:
+			print("Item not found")
 			
-	def calc_line_length(self, name, price):
-		taken_space = len(name) + len(str(price))
+	def calc_line_length(self, name, price, length = 40):
+		taken_space = len(name) + len("{:.2f}".format(price))
 		empty_space = ""
-		if(taken_space < 40):
-			for i in range(40 - taken_space):
-				empty_space += " "
+		if(taken_space < length):
+			for i in range(length - taken_space):
+				empty_space += "."
 		return empty_space
 	
 	def print_categories(self):
 		categories = []
+		total = 0.0
+		
 		for item in self.list:
 			if item.get_type() not in categories:
 				categories.append(item.get_type())
 
+		for item in self.list:
+			total += item.get_price()
+
+		print("\nShopping List:")
+		print(40 * "=" + "\n")
 		for category in categories:
-			print(category)
+			print(category + ":")
 			for item in self.list:
 				if item.get_type() == category:
-					print("\t" + item.get_name() + self.calc_line_length(item.get_name(), item.get_price()) + str(item.get_price()))
+					print(" " + item.get_name() + self.calc_line_length(item.get_name(), item.get_price(), 39) + "{:.2f}".format(item.get_price()))
 			print()
+		print(40 * "=")
+		print("Total:" + self.calc_line_length("Total:", total) + "{:.2f}".format(total))
