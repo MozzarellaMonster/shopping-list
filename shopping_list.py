@@ -33,7 +33,7 @@ class ShoppingList:
 				empty_space += "."
 		return empty_space
 	
-	def print_categories(self):
+	def make_categories(self):
 		categories = []
 		total = 0.0
 		full_string = ""
@@ -59,4 +59,4 @@ class ShoppingList:
 	
 	def make_shopping_list_txt(self):
 		with open("shopping_list.txt", 'w') as file:
-			file.write(self.print_categories())
+			file.write(self.make_categories())
